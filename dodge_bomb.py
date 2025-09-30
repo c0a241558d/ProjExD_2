@@ -28,19 +28,19 @@ def check_bound(rct:pg.Rect) -> tuple[bool,bool]:
     return yoko,tate
 
 def gameover(screen:pg.Surface) -> None:
-    gg_img = pg.Surface((WIDTH,HEIGHT))
-    pg.draw.rect(gg_img,(0,0,0),pg.Rect(0,0,WIDTH,HEIGHT))
-    gg_img.set_alpha(200)
+    gg_img = pg.Surface((WIDTH,HEIGHT))#からのSurfaceを作成
+    pg.draw.rect(gg_img,(0,0,0),pg.Rect(0,0,WIDTH,HEIGHT))#黒い長方形の描画
+    gg_img.set_alpha(200)#透明度設定
     fonto = pg.font.Font(None,80)
     txt = fonto.render("GAME OVER",
-                       True,(255,255,255))
-    gg_img.blit(txt,[400,300])
-    go_img = pg.image.load("fig/8.png")
+                       True,(255,255,255))#フォントの作成
+    gg_img.blit(txt,[400,300])#フォントをブリット
+    go_img = pg.image.load("fig/8.png")#画像のロード
     gg_img.blit(go_img,[340,290])
-    gg_img.blit(go_img,[750,290])
-    screen.blit(gg_img,[0,0])
+    gg_img.blit(go_img,[750,290])#画像のブリット
+    screen.blit(gg_img,[0,0])#スクリーンにブリット
     pg.display.update()
-    time.sleep(5)
+    time.sleep(5)#５秒の時止め
 
 def init_bb_imgs() -> tuple[list[pg.Surface], list[int]]:
         bb_imgs = []
